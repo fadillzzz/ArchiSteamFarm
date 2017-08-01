@@ -73,6 +73,13 @@ namespace ArchiSteamFarm {
 
 		[JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace, Required = Required.DisallowNull)]
 		public readonly ImmutableHashSet<uint> Blacklist = DefaultBlacklist;
+		
+		[JsonProperty(Required = Required.DisallowNull)]
+		internal readonly bool UseBlacklist = true;
+
+		[SuppressMessage("ReSharper", "CollectionNeverUpdated.Global")]
+		[JsonProperty(Required = Required.DisallowNull)]
+		internal readonly HashSet<uint> Whitelist = new HashSet<uint>();
 
 		[JsonProperty]
 		public readonly string CommandPrefix = DefaultCommandPrefix;

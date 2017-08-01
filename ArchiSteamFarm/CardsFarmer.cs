@@ -431,10 +431,31 @@ namespace ArchiSteamFarm {
 					continue;
 				}
 
+				dynamic config;
+
+				if (Bot.BotConfig.OverrideBlacklistWhitelist) {
+					config = Bot.BotConfig;
+				} else {
+					config = Program.GlobalConfig;
+				}
+
+				if (config.UseBlacklist) {
+					if (config.Blacklist.Contains(appID)) {
+						// We have this appID blacklisted, so skip it
+						continue;
+					}
+				} else {
+					if (!config.Whitelist.Contains(appID)) {
+						// Not whitelisted, skip to the next one
+						continue;
+					}
+				}
+
 				bool ignored = false;
 
 				foreach (ConcurrentDictionary<uint, DateTime> sourceOfIgnoredAppIDs in SourcesOfIgnoredAppIDs) {
 					if (!sourceOfIgnoredAppIDs.TryGetValue(appID, out DateTime ignoredUntil)) {
+
 						continue;
 					}
 

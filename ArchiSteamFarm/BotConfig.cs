@@ -105,6 +105,20 @@ namespace ArchiSteamFarm {
 		[JsonProperty(Required = Required.DisallowNull)]
 		public readonly bool IdleRefundableGames = DefaultIdleRefundableGames;
 
+		[JsonProperty(Required = Required.DisallowNull)]
+		internal readonly bool OverrideBlacklistWhitelist = false;
+
+		[JsonProperty(Required = Required.DisallowNull)]
+		internal readonly bool UseBlacklist = true;
+
+		[SuppressMessage("ReSharper", "CollectionNeverUpdated.Global")]
+		[JsonProperty(Required = Required.DisallowNull)]
+		internal readonly HashSet<uint> Whitelist = new HashSet<uint>();
+
+		[SuppressMessage("ReSharper", "CollectionNeverUpdated.Global")]
+		[JsonProperty(Required = Required.DisallowNull)]
+		internal readonly HashSet<uint> Blacklist = new HashSet<uint>();
+
 		[JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace, Required = Required.DisallowNull)]
 		public readonly ImmutableHashSet<Steam.Asset.EType> LootableTypes = DefaultLootableTypes;
 
