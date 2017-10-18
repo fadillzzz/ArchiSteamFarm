@@ -440,7 +440,7 @@ namespace ArchiSteamFarm {
 				}
 
 				if (config.UseBlacklist) {
-					if (config.Blacklist.Contains(appID)) {
+					if (config.Blacklist.Contains(appID) || Bot.IsBlacklistedFromIdling(appID)) {
 						// We have this appID blacklisted, so skip it
 						continue;
 					}
