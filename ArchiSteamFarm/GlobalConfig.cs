@@ -117,9 +117,6 @@ namespace ArchiSteamFarm {
 		[JsonProperty]
 		public readonly string IPCPassword = DefaultIPCPassword;
 
-		[JsonProperty]
-		internal readonly string IPCPassword;
-
 		[JsonProperty(Required = Required.DisallowNull)]
 		public readonly byte LoginLimiterDelay = DefaultLoginLimiterDelay;
 

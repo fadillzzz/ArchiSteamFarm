@@ -436,7 +436,7 @@ namespace ArchiSteamFarm {
 				if (Bot.BotConfig.OverrideBlacklistWhitelist) {
 					config = Bot.BotConfig;
 				} else {
-					config = Program.GlobalConfig;
+					config = ASF.GlobalConfig;
 				}
 
 				if (config.UseBlacklist) {
